@@ -1,0 +1,4 @@
+﻿  P143PROG_ChiaKeo.cpp
+D:\source\P143PROG_ChiaKeo\P143PROG_ChiaKeo.cpp(11): warning C4101: 'k': unreferenced local variable
+D:\source\P143PROG_ChiaKeo\P143PROG_ChiaKeo.cpp(11): warning C4101: 'n': unreferenced local variable
+  P143PROG_ChiaKeo.vcxproj -> D:\source\P143PROG_ChiaKeo\Debug\P143PROG_ChiaKeo.exe
