@@ -1,0 +1,6 @@
+﻿  GUITIEN.cpp
+D:\source\GUITIEN\GUITIEN.cpp(8): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\source\GUITIEN\GUITIEN.cpp(12): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\source\GUITIEN\GUITIEN.cpp(13): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\source\GUITIEN\GUITIEN.cpp(14): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  GUITIEN.vcxproj -> D:\source\GUITIEN\Debug\GUITIEN.exe

@@ -19,7 +19,7 @@ int K_direct_col[8] = { 2, 1, 2, 1, -1, -2, -1, -2 };
 
 int K_count_unsafe(int row, int col)
 {
-	int unsafe = 0;
+	int n_unsafe = 0;
 	for (int i = 0; i < 8; i++)
 	{
 		int r = row + K_direct_row[i];
@@ -30,11 +30,11 @@ int K_count_unsafe(int row, int col)
 			if (board[r][c] == safe)
 			{
 				board[r][c] = unsafe;
-				unsafe++;
+				n_unsafe++;
 			}
 		}
 	}
-	return unsafe;
+	return n_unsafe;
 }
 
 int Q_direct_row[8] = { 0, 0, 1, 1, 1, -1, -1, -1 }; // hau co the di 8 huong

@@ -1,62 +1,121 @@
 ﻿#include <iostream>
-#include <stack>
 
 using namespace std;
 
-const int MAX = 1000;
+int order[1000], stack[1000], top; // initialized positions
+bool check;
 
-int order[MAX]; // initialized positions
-int check = true;
-stack<int> s;
-
-void printStack(stack<int> s)
-{
-	cout << "Current stack: ";
-	while (!s.empty())
-	{
-		cout << s.top() << " ";
-		s.pop();
-	}
-	cout << endl;
+int stack_pop() {
+	int data;
+	data = stack[top];
+	top--;
+	return data;
+}
+int stack_push(int data) {
+	top++;
+	stack[top] = data;
+	return data;
 }
 
 int main()
 {
-	int n = 0;
+	int n;
 	cin >> n;
-	char c;
-	int index = 0;
-
-	for (int i = 0; i <= n; i++)
+	while (n != 0)
 	{
-		cin >> order[i];
-		if (order[i] == 0) break;
-	}
-	
-	//check = true;
-	int start = 1;
-
-	for (int i = 0; i < n; i++)
-	{
-		while (!s.empty() && s.top() == start)
+		for (int i = 0; i < n; i++)
 		{
-			s.pop();
-			start++;
+			cin >> order[i];
 		}
 
-		if (order[i] == start) start++;
-		else if (!s.empty() && s.top() < order[i]) // nếu nhỏ hơn mà đẩy vào stack thì sau sẽ ko ra được order thỏa mãn
+		top = -1;
+		check = true;
+		int index = 0, start = 0;
+		stack_push(n + 1);
+
+		//cout << n + 1 << endl;
+		while (index != n)
 		{
-			check = false;
-			break;
+			if (order[index] == (start + 1))
+			{
+				start = order[index];
+				index++;
+			}
+			else if (stack[top] == (start + 1))
+			{
+				start = stack_pop();
+			}
+			else if (order[index] < stack[top])
+			{
+				stack_push(order[index]);
+				index++;
+			}
+			else {
+				check = false;
+				break;
+			}
 		}
-		else {
-			s.push(order[i]);
-		}
-	}
-	//printStack(s);
-	if (check) cout << "yes" << endl;
-	else cout << "no" << endl;
 
+		if (check) cout << "yes" << endl;
+		else cout << "no" << endl;
+
+		cin >> n;
+	}
 	return 0;
 }
+
+
+//#include <iostream>
+//#include <stack>
+//
+//using namespace std;
+//
+//int order[1000]; // initialized positions
+//bool check;
+//stack<int> s;
+//
+//int main()
+//{
+//	int n;
+//	cin >> n;
+//	while (n != 0)
+//	{
+//		for (int i = 0; i < n; i++)
+//		{
+//			cin >> order[i];
+//		}
+//
+//		check = true;
+//		int index = 0, start = 0;
+//		s.push(n + 1);
+//		//cout << n+1 << endl;
+//		while (index != n)
+//		{
+//			if (order[index] == start + 1)
+//			{
+//				start = order[index];
+//				index++;
+//			}
+//			else if (s.top() == start + 1)
+//			{
+//				start = s.top();
+//				s.pop();
+//			}
+//			else if (order[index] < s.top())
+//			{
+//				s.push(order[index]);
+//				index++;
+//			}
+//			else {
+//				check = false;
+//				break;
+//			}
+//		}
+//
+//		if (check) cout << "yes" << endl;
+//		else cout << "no" << endl;
+//
+//		cin >> n;
+//	}
+//	return 0;
+//}

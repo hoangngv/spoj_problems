@@ -1,0 +1,3 @@
+﻿  RepairRoad.cpp
+D:\source\RepairRoad\RepairRoad.cpp(60): warning C4018: '<': signed/unsigned mismatch
+  RepairRoad.vcxproj -> D:\source\RepairRoad\Debug\RepairRoad.exe
